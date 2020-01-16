@@ -22,3 +22,16 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+argv_len = len(sys.argv)
+current_date = datetime.now()
+calendar = calendar.TextCalendar()
+
+if argv_len == 1:
+  calendar.prmonth(current_date.year, current_date.month)
+elif argv_len == 2:
+  calendar.prmonth(current_date.year, int(sys.argv[1]))
+elif argv_len == 3:
+  calendar.prmonth(int(sys.argv[2]), int(sys.argv[1]))
+else:
+  print("Too many arguments, program expects cal.py (month) (year)")
